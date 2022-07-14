@@ -1,0 +1,21 @@
+
+server:
+  address: localhost
+  port: 8082
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ''
+    url: jdbc:mysql://127.0.0.1:3306/yhim_spring
+    username: root
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # MYSQL? ?? SQL ??? ???? ??
+    generate-ddl: true # DDL ??? ??????? ?? ??? ????.
+    show-sql: true # API ???, SQL ?? ??? ????.
+    hibernate:
+      ddl-auto: update # ??? ??? ??? DB UPDATE
+  sql:
+    init: # DB ???
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
