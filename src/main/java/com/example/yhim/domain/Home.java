@@ -2,12 +2,19 @@ package com.example.yhim.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 // 숙소
 @Getter
+@Setter
 @Entity
+@NoArgsConstructor
 public class Home {
 
     @Id
@@ -41,8 +48,14 @@ public class Home {
     @Column(nullable = false)
     private int bathroom; //욕실 수
 
+    //편의시설
+    @ManyToMany
+    @JoinTable(name = "home_facilities", joinColumns = @JoinColumn(name = "home_id"), inverseJoinColumns = @JoinColumn(name = "facilities_id"))
+    private List<Facilities> facilities = new ArrayList<>();
+
+    @Autowired
     @Builder
-    public Home(String name, String host, String address, String photo, String description, int guest, int room, int bed, int bathroom) {
+    public Home(String name, String host, String address, String photo, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {
         this.name = name;
         this.host = host;
         this.address = address;
@@ -52,5 +65,19 @@ public class Home {
         this.room = room;
         this.bed = bed;
         this.bathroom = bathroom;
+        this.facilities = facilities;
+    }
+
+    public void update(String name, String host, String address, String photo, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {
+        this.name = name;
+        this.host = host;
+        this.address = address;
+        this.photo = photo;
+        this.description = description;
+        this.guest = guest;
+        this.room = room;
+        this.bed = bed;
+        this.bathroom = bathroom;
+        this.facilities = facilities;
     }
 }

@@ -1,9 +1,13 @@
 package com.example.yhim.dto;
 
+import com.example.yhim.domain.Facilities;
 import com.example.yhim.domain.Home;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,9 +21,10 @@ public class HomeSaveRequestDto {
     private int room;
     private int bed;
     private int bathroom;
+    private List<Facilities> facilities = new ArrayList<>();
 
     @Builder
-    public HomeSaveRequestDto(String name, String host, String address, String photo, String description, int guest, int room, int bed, int bathroom) {
+    public HomeSaveRequestDto(String name, String host, String address, String photo, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {
         this.name = name;
         this.host = host;
         this.address = address;
@@ -29,6 +34,7 @@ public class HomeSaveRequestDto {
         this.room = room;
         this.bed = bed;
         this.bathroom = bathroom;
+        this.facilities = facilities;
     }
 
     public Home toEntity(){
@@ -42,6 +48,7 @@ public class HomeSaveRequestDto {
             .room(room)
             .bed(bed)
             .bathroom(bathroom)
+            .facilities(facilities)
             .build();
     }
 }
