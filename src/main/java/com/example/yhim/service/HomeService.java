@@ -7,10 +7,12 @@ import com.example.yhim.domain.HomeRepository;
 import com.example.yhim.dto.HomeModifyRequestDto;
 import com.example.yhim.dto.HomeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@Service
 @RequiredArgsConstructor
 @RestController
 public class HomeService {
@@ -45,12 +47,10 @@ public class HomeService {
 
         // 수정할 숙소를 id로 찾기
         Home home = homeRepository.findById(id).get();
-        System.out.println("수정 전" + home.getName());
 
         home.update(form.getName(), form.getHost(), form.getAddress(), form.getPhoto(),
                 form.getDescription(), form.getGuest(), form.getRoom(), form.getBed(),
                 form.getBathroom(), form.getFacilities());
-        System.out.println("수정 후" + home.getName());
     }
 
 

@@ -18,14 +18,14 @@ public class IndexController {
     private final HomeService homeService;
 
     // Main
-    @GetMapping("/")
+    @GetMapping("/home")
     public List<Home> index(Model model){
 
-        //model.addAttribute("homes", homeService.findAll());
+        model.addAttribute("homes", homeService.findAll());
         return homeService.findAll();
     }
 
-    @GetMapping("/home")
+    @GetMapping("/facilities")
     public List<Facilities> homeAdd(Model model){
         model.addAttribute("facilities", homeService.findAllFacilities());
         return homeService.findAllFacilities();
