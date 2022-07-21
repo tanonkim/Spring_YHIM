@@ -14,24 +14,24 @@ public class HomeController {
 
     private final HomeService homeService;
 
+    //@ResponseBody
     @PostMapping("/home")
-    @ResponseBody
-    public Long save(HomeSaveRequestDto form) {
+    public String save(HomeSaveRequestDto form) {
         return homeService.save(form);
     }
 
     // 숙소 삭제
     @DeleteMapping("/home/delete/{id}")
-    public void delete(@PathVariable long id) {
+    public String delete(@PathVariable long id) {
         homeService.delete(id);
+        return "redirect:/home";
     }
 
     // 숙소 수정
     @Transactional
     @ResponseBody
     @PutMapping("/home/modify/{id}")
-    public void modifySave(@PathVariable long id, HomeModifyRequestDto form) {
-        System.out.println(form.toString());
-        homeService.modify(id,form);
+    public String modifySave(@PathVariable long id, HomeModifyRequestDto form) {
+        return homeService.modify(id,form);
     }
 }
