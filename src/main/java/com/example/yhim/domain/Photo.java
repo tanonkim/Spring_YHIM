@@ -37,12 +37,12 @@ public class Photo {
         this.fileSize = fileSize;
     }
 
-//    public void setHome(Home home){
-//        this.home = home;
-//
-//        // 현재 파일이 Home에 존재하지 않는다면
-//        if (!home.getPhoto().contains(this)){
-//            home.getPhoto().add(this);
-//        }
-//    }
+    public void setHome(Home home){
+        this.home = home;
+
+        // 현재 파일이 Home에 존재하지 않는다면
+        if (!home.getPhoto().contains(this)){
+            home.getPhoto().add(this);
+        }
+    }
 }

@@ -1,9 +1,6 @@
 package com.example.yhim.service;
 
-import com.example.yhim.domain.Facilities;
-import com.example.yhim.domain.FacilitiesRepository;
-import com.example.yhim.domain.Home;
-import com.example.yhim.domain.HomeRepository;
+import com.example.yhim.domain.*;
 import com.example.yhim.dto.HomeModifyRequestDto;
 import com.example.yhim.dto.HomeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.logging.FileHandler;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +16,8 @@ import java.util.List;
 public class HomeService {
     private final HomeRepository homeRepository;
     private final FacilitiesRepository facilitiesRepository;
+    //private final FileHandler fileHandler;
+    private final PhotoRepository photoRepository;
 
     public List<Home> findAll(){
         return homeRepository.findAll();
