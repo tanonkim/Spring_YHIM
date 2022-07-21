@@ -1,5 +1,6 @@
 package com.example.yhim.controller;
 
+import com.example.yhim.domain.VO.HomeFileVO;
 import com.example.yhim.dto.HomeModifyRequestDto;
 import com.example.yhim.dto.HomeSaveRequestDto;
 import com.example.yhim.service.HomeService;
@@ -16,8 +17,21 @@ public class HomeController {
 
     //@ResponseBody
     @PostMapping("/home")
-    public String save(HomeSaveRequestDto form) {
-        return homeService.save(form);
+    public String save(HomeFileVO homeFileVO) throws Exception{
+        HomeSaveRequestDto requestDto = HomeSaveRequestDto.builder()
+                .name(homeFileVO.getName())
+                .host(homeFileVO.getHost())
+                .address(homeFileVO.getAddress())
+                .description(homeFileVO.getDescription())
+                .guest(homeFileVO.getGuest())
+                .room(homeFileVO.getRoom())
+                .bed(homeFileVO.getBed())
+                .bathroom(homeFileVO.getBathroom())
+                .facilities(homeFileVO.getFacilities())
+                .build();
+
+        homeService.save(requestDto, homeFileVO.getFiles());
+        return "redirect:/";
     }
 
     // 숙소 삭제

@@ -16,7 +16,7 @@ import java.util.logging.FileHandler;
 public class HomeService {
     private final HomeRepository homeRepository;
     private final FacilitiesRepository facilitiesRepository;
-    //private final FileHandler fileHandler;
+    private final FileHandler fileHandler;
     private final PhotoRepository photoRepository;
 
     public List<Home> findAll(){
