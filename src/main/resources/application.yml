@@ -14,9 +14,15 @@ spring:
     generate-ddl: true # DDL ??? ??????? ?? ??? ????.
     show-sql: true # API ???, SQL ?? ??? ????.
     hibernate:
-      ddl-auto: create-drop # ??? ??? ??? DB UPDATE
+      ddl-auto: none # ??? ??? ??? DB UPDATE
     defer-datasource-initialization: true
   sql:
     init: # DB 초기화
       schema-locations: classpath:db/schema.sql
       data-locations: classpath:db/data.sql
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+

@@ -16,11 +16,10 @@ public class HomeController {
 
     private final HomeService homeService;
 
-    //@ResponseBody
+    @ResponseBody
     @PostMapping("/home")
     @ResponseStatus(HttpStatus.CREATED)
     public String save(HomeFileVO homeFileVO) throws Exception{
-        System.out.println("저장 완료 : " + homeFileVO.toString());
 
         HomeSaveRequestDto requestDto = HomeSaveRequestDto.builder()
                 .name(homeFileVO.getName())

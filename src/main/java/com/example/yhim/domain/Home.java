@@ -66,7 +66,6 @@ public class Home {
         this.bed = bed;
         this.bathroom = bathroom;
         this.facilities = facilities;
-        //this.photo = photo;
     }
 
     public void update(String name, String host, String address, List<Photo> photo, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {
