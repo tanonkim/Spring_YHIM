@@ -1,5 +1,6 @@
 package com.example.yhim.service;
 
+import com.example.yhim.controller.FileHandler;
 import com.example.yhim.domain.*;
 import com.example.yhim.controller.dto.HomeModifyRequestDto;
 import com.example.yhim.controller.dto.HomeSaveRequestDto;
@@ -10,11 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.logging.FileHandler;
+
 
 @Service
 @RequiredArgsConstructor
-//@RestController
+@RestController
 public class HomeService {
 
     private final HomeRepository homeRepository;
