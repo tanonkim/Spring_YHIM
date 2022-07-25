@@ -69,7 +69,7 @@ public class HomeService {
 
         home.update(form.getName(), form.getHost(), form.getAddress(), form.getPhoto(),
                 form.getDescription(), form.getGuest(), form.getRoom(), form.getBed(),
-                form.getBathroom(), form.getFacilities());
+                form.getBathroom(), form.getPrice(),form.getFacilities());
         return "redirect:/home";
     }
 }

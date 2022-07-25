@@ -19,6 +19,7 @@ public class HomeModifyRequestDto {
     private int room; //침실 수
     private int bed; //침대 수
     private int bathroom; //욕실 수
+    private int price;
     private List<Facilities> facilities = new ArrayList<>(); // 편의시설
     private List<Photo> photo = new ArrayList<>(); // 파일(사진)
 

@@ -45,6 +45,9 @@ public class Home {
     @Column(nullable = false)
     private int bathroom; //욕실 수
 
+    @Column(nullable = false)
+    private int price; //가격
+
     //편의시설
     @ManyToMany
     @JoinTable(name = "home_facilities", joinColumns = @JoinColumn(name = "home_id"), inverseJoinColumns = @JoinColumn(name = "facilities_id"))
@@ -56,7 +59,7 @@ public class Home {
 
     @Autowired
     @Builder
-    public Home(String name, String host, String address, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {
+    public Home(String name, String host, String address, String description, int guest, int room, int bed, int bathroom, int price, List<Facilities> facilities) {
         this.name = name;
         this.host = host;
         this.address = address;
@@ -64,11 +67,13 @@ public class Home {
         this.guest = guest;
         this.room = room;
         this.bed = bed;
+        this.price = price;
         this.bathroom = bathroom;
+
         this.facilities = facilities;
     }
 
-    public void update(String name, String host, String address, List<Photo> photo, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {
+    public void update(String name, String host, String address, List<Photo> photo, String description, int guest, int room, int bed, int bathroom, int price, List<Facilities> facilities) {
         this.name = name;
         this.host = host;
         this.address = address;
@@ -78,6 +83,7 @@ public class Home {
         this.room = room;
         this.bed = bed;
         this.bathroom = bathroom;
+        this.price = price;
         this.facilities = facilities;
     }
     // Home에서 파일(사진) 처리 위함

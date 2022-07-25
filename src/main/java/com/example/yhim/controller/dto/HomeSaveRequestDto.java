@@ -20,10 +20,11 @@ public class HomeSaveRequestDto {
     private int room;
     private int bed;
     private int bathroom;
+    private int price;
     private List<Facilities> facilities = new ArrayList<>();
 
     @Builder
-    public HomeSaveRequestDto(String name, String host, String address, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {
+    public HomeSaveRequestDto(String name, String host, String address, String description, int guest, int room, int bed, int bathroom, int price, List<Facilities> facilities) {
         this.name = name;
         this.host = host;
         this.address = address;
@@ -32,6 +33,7 @@ public class HomeSaveRequestDto {
         this.room = room;
         this.bed = bed;
         this.bathroom = bathroom;
+        this.price = price;
         this.facilities = facilities;
     }
 
@@ -45,6 +47,7 @@ public class HomeSaveRequestDto {
             .room(room)
             .bed(bed)
             .bathroom(bathroom)
+            .price(price)
             .facilities(facilities)
             .build();
     }
