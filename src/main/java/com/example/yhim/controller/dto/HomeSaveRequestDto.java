@@ -1,4 +1,4 @@
-package com.example.yhim.dto;
+package com.example.yhim.controller.dto;
 
 import com.example.yhim.domain.Facilities;
 import com.example.yhim.domain.Home;

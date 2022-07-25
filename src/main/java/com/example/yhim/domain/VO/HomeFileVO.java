@@ -18,6 +18,6 @@ public class HomeFileVO {
     private int room ;
     private int bed;
     private int bathroom;
-    private List<Facilities> facilities = new ArrayList<>();
+    private List<Facilities> facilities = new ArrayList<>(); // 편의시설
     private List<MultipartFile> files;
 }

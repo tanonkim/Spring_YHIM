@@ -56,7 +56,7 @@ public class Home {
 
     @Autowired
     @Builder
-    public Home(String name, String host, String address, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities, List<Photo> photo) {
+    public Home(String name, String host, String address, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {
         this.name = name;
         this.host = host;
         this.address = address;
@@ -66,7 +66,7 @@ public class Home {
         this.bed = bed;
         this.bathroom = bathroom;
         this.facilities = facilities;
-        this.photo = photo;
+        //this.photo = photo;
     }
 
     public void update(String name, String host, String address, List<Photo> photo, String description, int guest, int room, int bed, int bathroom, List<Facilities> facilities) {

@@ -1,8 +1,8 @@
 package com.example.yhim.controller;
 
 import com.example.yhim.domain.VO.HomeFileVO;
-import com.example.yhim.dto.HomeModifyRequestDto;
-import com.example.yhim.dto.HomeSaveRequestDto;
+import com.example.yhim.controller.dto.HomeModifyRequestDto;
+import com.example.yhim.controller.dto.HomeSaveRequestDto;
 import com.example.yhim.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +18,8 @@ public class HomeController {
     //@ResponseBody
     @PostMapping("/home")
     public String save(HomeFileVO homeFileVO) throws Exception{
+        System.out.println("저장 완료 : " + homeFileVO.toString());
+
         HomeSaveRequestDto requestDto = HomeSaveRequestDto.builder()
                 .name(homeFileVO.getName())
                 .host(homeFileVO.getHost())
