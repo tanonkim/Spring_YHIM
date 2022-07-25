@@ -5,6 +5,7 @@ import com.example.yhim.controller.dto.HomeModifyRequestDto;
 import com.example.yhim.controller.dto.HomeSaveRequestDto;
 import com.example.yhim.service.HomeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -17,6 +18,7 @@ public class HomeController {
 
     //@ResponseBody
     @PostMapping("/home")
+    @ResponseStatus(HttpStatus.CREATED)
     public String save(HomeFileVO homeFileVO) throws Exception{
         System.out.println("저장 완료 : " + homeFileVO.toString());
 
@@ -33,10 +35,11 @@ public class HomeController {
                 .build();
 
         homeService.save(requestDto, homeFileVO.getFiles());
-        return "redirect:/";
+        return "ROOM_CREATED";
     }
 
     // 숙소 삭제
+    @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/home/delete/{id}")
     public String delete(@PathVariable long id) {
         homeService.delete(id);
@@ -47,6 +50,7 @@ public class HomeController {
     @Transactional
     @ResponseBody
     @PutMapping("/home/modify/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public String modifySave(@PathVariable long id, HomeModifyRequestDto form) {
         return homeService.modify(id,form);
     }
