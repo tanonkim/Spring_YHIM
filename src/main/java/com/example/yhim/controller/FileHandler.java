@@ -43,7 +43,7 @@ public class FileHandler {
             String absolutePath = new File("").getAbsolutePath() + File.separator + File.separator;
 
             // 파일을 저장할 세부 경로 지정
-            String path = "src\\main\\resources\\static\\images" + File.separator + current_date;
+            String path = "src/main/resources/static/images" + File.separator + current_date;
             File file = new File(path);
 
             // 디렉터리가 존재하지 않을 경우
@@ -91,7 +91,6 @@ public class FileHandler {
                         photoDto.getFilePath(),
                         photoDto.getFileSize()
                 );
-
                 // 생성 후 리스트에 추가
                 fileList.add(photo);
 
